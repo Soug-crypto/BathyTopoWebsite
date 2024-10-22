@@ -8,7 +8,7 @@ st.markdown(
         font-family: 'Helvetica Neue', Arial, sans-serif;
         background-color: #F5F5F5;
         color: #333;
-        line-height: 1.6; /* Improve readability */
+        line-height: 1.6;
     }
     
     h1, h2, h3 {
@@ -17,7 +17,7 @@ st.markdown(
     }
     
     .logo {
-        text-align: center; /* Align logo to the left */
+        text-align: center; 
         margin: 20px 0;
     }
     
@@ -42,10 +42,10 @@ st.markdown(
         font-size: 22px;
         text-align: center;
         margin: 20px 0;
-        color: #333;
-        background-color: #ffffff; /* White background for contrast */
-        padding: 15px; /* Padding for better spacing */
-        border-radius: 5px; /* Rounded corners */
+        color: ##286589;
+        background-color: #ffffff;
+        padding: 15px;
+        border-radius: 5px; 
         box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
     }
     
@@ -54,12 +54,19 @@ st.markdown(
         margin: 10px 0;
         padding: 10px; /* Padding for clarity */
         background-color: #f9f9f9; /* Light background */
-        border-left: 3px solid #46A748; /* Left border for emphasis */
+        border-left: 3px solid #286589; /* Left border for emphasis */
     }
     
     .separator {
         margin: 40px 0;
         border: 1px solid #E0E0E0;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 50px; 
+        font-size: 0.9em;
+        color: #888;
     }
     
     /* Responsive design for better mobile viewing */
@@ -136,7 +143,7 @@ def home_page():
     # Enhanced welcome text with improved styling
     st.markdown(
         '<div class="welcome-text">'
-        'We provide <strong style="color: #46A748;">high-precision surveying solutions</strong> to various industries, '
+        'We provide <strong style="color: #286589;">high-precision surveying solutions</strong> to various industries, '
         'leveraging advanced technologies and expertise.'
         '</div>', 
         unsafe_allow_html=True
@@ -168,6 +175,8 @@ def home_page():
 
     # st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
+    # Footer
+    st.markdown('<div class="footer">© 2024 GeoLibya. All rights reserved.</div>', unsafe_allow_html=True)
 
 # Main application entry point
 if __name__ == "__main__":

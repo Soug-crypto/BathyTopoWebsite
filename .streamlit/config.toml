@@ -1,0 +1,18 @@
+[global]
+disableWidgetStateDuplicationWarning = false
+showWarningOnDirectExecution = true
+
+[theme]
+base = "light"
+primaryColor = "#46A748"
+
+
+[client]
+showErrorDetails = true
+showSidebarNavigation = false
+
+[runner]
+fastReruns = true
+
+[secrets]
+files = [ "~/.streamlit/secrets.toml"]

@@ -20,14 +20,7 @@ st.markdown(
         text-align: center;
         margin: 25px 0; /* Consistent spacing */
     }
-    .section {
-        margin: 40px auto;
-        background-color: rgba(255, 255, 255, 0.95);
-        padding: 30px; /* Increased padding for comfort */
-        border-radius: 10px; /* Slightly rounded corners */
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
-        max-width: 900px; /* Wider max width */
-    }
+    
     .fact {
         font-weight: bold;
         color: #2980B9; /* Distinct blue for facts */
