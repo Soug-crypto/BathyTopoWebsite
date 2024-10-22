@@ -9,7 +9,7 @@ primaryColor = "#46A748"
 
 [client]
 showErrorDetails = true
-showSidebarNavigation = false
+showSidebarNavigation = true
 
 [runner]
 fastReruns = true
