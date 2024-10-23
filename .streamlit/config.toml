@@ -5,7 +5,7 @@ showWarningOnDirectExecution = false
 [theme]
 base = "light"
 primaryColor = "#eedccb"
-secondaryBackgroundColor = "#0083B8"
+secondaryBackgroundColor = "#F5F5F5"
 
 
 
