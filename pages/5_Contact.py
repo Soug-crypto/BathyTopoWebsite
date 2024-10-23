@@ -1,50 +1,12 @@
 import streamlit as st
+from footer import footer
 
-# Custom CSS
-st.markdown(
-    """
-    <style>
-    body {
-        font-family: 'Helvetica Neue', Arial, sans-serif;
-        background-color: #F5F5F5;
-        color: #333;
-    }
-    h1, h2 {
-        color: #1A1A1A;
-    }
-    .contact-form {
-        margin: 20px 0;
-        padding: 20px;
-        background-color: white;
-        border-radius: 10px;
-    }
-    .social-links {
-        margin-top: 10px;
-        text-align: center;
-    }
-    .button {
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 25px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    .button:hover {
-        background-color: #45A049;
-    }
-    .footer {
-        text-align: center;
-        margin-top: 50px; /* More space above footer */
-        font-size: 0.9em; /* Slightly larger footer text */
-        color: #888;
-    }
-    </style>
-    """, 
-    unsafe_allow_html=True
-)
+with open('./files/style.css') as f:
+    css = f.read()
+
+st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
+
+st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
 
 st.title("Contact Us")
@@ -79,3 +41,4 @@ st.markdown("""
 
 # Footer
 st.markdown('<div class="footer">© 2024 GeoLibya. All rights reserved.</div>', unsafe_allow_html=True)
+footer()

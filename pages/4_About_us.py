@@ -1,54 +1,19 @@
 import streamlit as st
+from footer import footer
 
-# Custom CSS
-st.markdown(
-    """
-    <style>
-    body {
-        font-family: 'Helvetica Neue', Arial, sans-serif;
-        background-color: #F5F5F5;
-        color: #333;
-    }
-    h1, h2 {
-        color: #1A1A1A;
-    }
-    .about-section {
-        margin: 20px 0;
-        padding: 20px;
-        background-color: white;
-        border-radius: 10px;
-    }
-    .team-member {
-        text-align: center;
-        margin: 10px;
-    }
-    .footer {
-        text-align: center;
-        margin-top: 50px; /* More space above footer */
-        font-size: 0.9em; /* Slightly larger footer text */
-        color: #888;
-    }
-    </style>
-    """, 
-    unsafe_allow_html=True
-)
+with open('./files/style.css') as f:
+    css = f.read()
+
+st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
+st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
+
 
 st.title("About Us")
 st.subheader("Company Overview")
 
-# st.markdown('<div class="about-section">', unsafe_allow_html=True)
 st.write("""
     GeoLibya is a leading provider of high-precision surveying solutions in Libya, specializing in topographic and bathymetric surveys.
     We support a wide range of industries, including construction, environmental studies, urban planning, oil, and marine projects.
-""")
-st.markdown('</div>', unsafe_allow_html=True)
-
-# Mission and Vision
-st.subheader("Mission and Vision")
-# st.markdown('<div class="about-section">', unsafe_allow_html=True)
-st.write("""
-    - **Mission:** To empower Libya’s development with accurate, reliable data that drives successful project outcomes across various industries.
-    - **Vision:** To be Libya’s most trusted surveying partner, known for technological leadership, quality, and a dedication to client success.
 """)
 st.markdown('</div>', unsafe_allow_html=True)
 
@@ -89,3 +54,4 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
 st.markdown('<div class="footer">© 2024 GeoLibya. All rights reserved.</div>', unsafe_allow_html=True)
+footer()

@@ -1,15 +1,18 @@
 [global]
 disableWidgetStateDuplicationWarning = false
-showWarningOnDirectExecution = true
+showWarningOnDirectExecution = false
 
 [theme]
 base = "light"
-primaryColor = "#46A748"
+primaryColor = "#eedccb"
+secondaryBackgroundColor = "#0083B8"
+
 
 
 [client]
 showErrorDetails = true
 showSidebarNavigation = true
+toolbarMode = "viewer"
 
 [runner]
 fastReruns = true

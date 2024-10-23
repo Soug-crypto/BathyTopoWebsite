@@ -1,25 +1,16 @@
-
 import streamlit as st
 import plotly.io as pio
 from pathlib import Path
 import json
+from footer import footer
 
 
+with open('./files/style.css') as f:
+    css = f.read()
 
-st.markdown(
-    """
-    <style>
-    .footer {
-        text-align: center;
-        margin-top: 50px; /* More space above footer */
-        font-size: 0.9em; /* Slightly larger footer text */
-        color: #888;
-    }
+st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
 
-    </style>
-    """, 
-    unsafe_allow_html=True
-)
+st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
 @st.cache_data(ttl=3600, max_entries=10)
 def load_figure_from_json(json_file: Path):
@@ -69,8 +60,11 @@ def extract_file_types(json_files: list) -> set:
     """
     return set(f.split('_')[0] for f in json_files)
 
-
- # Directory where JSON files are stored
+def main():
+    """
+    Main function to run the Streamlit app for interactive chart loading.
+    """
+    # Directory where JSON files are stored
     chart_dir = Path('files/charts')
 
     # Load available JSON files
@@ -145,3 +139,7 @@ def extract_file_types(json_files: list) -> set:
 
     # Footer
     st.markdown('<div class="footer">© 2024 GeoLibya. All rights reserved.</div>', unsafe_allow_html=True)
+    footer()
+
+if __name__ == "__main__":
+    main()

@@ -1,41 +1,11 @@
 import streamlit as st
+from footer import footer
 
-# Custom CSS
-st.markdown(
-    """
-    <style>
-    body {
-        font-family: 'Helvetica Neue', Arial, sans-serif;
-        background-color: #F5F5F5;
-        color: #333;
-    }
-    h1, h2 {
-        color: #1A1A1A;
-    }
-    .service-title {
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-    .service-description {
-        margin-bottom: 5px;
-    }
+with open('./files/style.css') as f:
+    css = f.read()
 
-    .footer {
-        text-align: center;
-        margin-top: 50px; /* More space above footer */
-        font-size: 0.9em; /* Slightly larger footer text */
-        color: #888;
-    }
-    .expander {
-        margin: 20px 0;
-        padding: 15px;
-        background-color: white;
-        border-radius: 10px;
-    }
-    </style>
-    """, 
-    unsafe_allow_html=True
-)
+st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
+st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
 st.title("Our Services")
     
@@ -99,3 +69,4 @@ for service in services:
 
 # Footer
 st.markdown('<div class="footer">© 2024 GeoLibya. All rights reserved.</div>', unsafe_allow_html=True)
+footer()

@@ -1,0 +1,212 @@
+/* .stApp > header {
+    background-color: transparent;
+}
+
+.stApp {
+    margin: auto;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: auto;
+    background-attachment: fixed; 
+}  */
+
+
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #F5F5F5;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    text-align: left;
+}
+
+[data-testid=stSidebar] {
+    background-color: #eedccb;
+    color: #26658c;
+}
+
+
+
+
+[data-testid=stSidebar]::before {
+    /* content: "☰";  */
+    font-size: 24px; 
+    color: #26658c; 
+    position: absolute;
+    left: 15px; 
+    top: 15px; 
+}
+
+[data-testid=stSidebarCollapseButton] {
+    content: "☰"; /* Unicode character for hamburger icon */
+    font-size: 24px; /* Adjust size as needed */
+    color: #26658c; /* Custom icon color */
+    /* position: absolute; */
+
+}
+
+.project-description {
+    margin: 10px 0;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.filter-dropdown {
+    margin-bottom: 20px;
+}
+
+.logo {
+    text-align: center; 
+    margin: 20px 0;
+}
+
+.title {
+    text-align: left; /* Center the title */
+    margin: 20px 0;
+    font-weight: medium; /* Bold title for emphasis */
+}
+
+.tagline {
+    font-size: 20px; /* Increase font size for emphasis */
+    font-weight: medium; /* Make it bold */
+    text-align: center; /* Center the tagline */
+    color: #1A1A1A; /* Distinct color */
+    margin: 10px 0; /* Add margin for spacing */
+    padding: 10px; /* Add padding for emphasis */
+    border: 1px solid #1A1A1A; /* Border to highlight */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.welcome-text {
+    font-size: 22px;
+    text-align: center;
+    margin: 20px 0;
+    color: #286589;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+.mission-vision {
+    font-size: 20px;
+    margin: 10px 0;
+    padding: 10px; /* Padding for clarity */
+    background-color: #f9f9f9; /* Light background */
+    border-left: 3px solid #286589; /* Left border for emphasis */
+}
+
+.separator {
+    margin: 40px 0;
+    border: 1px solid #E0E0E0;
+}
+
+
+.service-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.service-description {
+    margin-bottom: 5px;
+}
+
+.expander {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+.streamlit-expanderHeader p {
+    margin: 20px 0;
+    padding: 30px;
+    background-color: white;
+    color: black;
+}
+
+.streamlit-expanderHeader:hover {
+    background-color: #f0f0f0;  /* Change background on hover */
+    color: #286589;  /* Change text color on hover */
+}
+.streamlit-expanderContent {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: white;
+    color: black; 
+}
+
+
+/* about us page */
+.about-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+.team-member {
+    text-align: center;
+    margin: 10px;
+}
+
+
+/* contact us page */
+.contact-form {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+.social-links {
+    margin-top: 10px;
+    text-align: center;
+}
+.button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.button:hover {
+    background-color: #45A049;
+}
+
+
+
+
+.footer {
+    text-align: center;
+    margin-top: 50px; 
+    font-size: 0.9em;
+    color: #888;
+}
+
+/* Responsive design for better mobile viewing - Adjust font size on smaller screens */
+/* @media (max-width: 600px) {
+    .tagline {
+        font-size: 20px; 
+    }
+    .welcome-text {
+        font-size: 18px; 
+    }
+} */
+
+
+
+
+
+/* .stTextArea {
+    background-color: #d9d9d9;
+    opacity: 1.0;
+    border: 1px solid #6a5454;
+    border-radius: 10px;
+    padding: 10px;
+}  */
+
