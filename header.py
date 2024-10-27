@@ -59,7 +59,7 @@ def header():
             key="logo",
             css_styles= logo_css_styles,
         ):
-            st.image("images/logo.png", width=200)  
+            st.image("images/logo.png", width=175)  
     col1.float()
 
     with col2:

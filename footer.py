@@ -62,6 +62,16 @@ def footer(pages=None, directory="pages", footer_css_styles=None):
                 font-size: 0.9em;
                 color: #888;
             } 
+
+            .social-links a {
+                color: #286589; 
+                text-decoration: none;
+                margin-right: 10px;
+            }
+
+            .social-links a:hover {
+                text-decoration: underline;
+            }
     """
     
     # Use default styles if none provided
@@ -97,6 +107,16 @@ def footer(pages=None, directory="pages", footer_css_styles=None):
                     if st.button(button_label, key=page):
                         switch_page(page)
        
+
+       # Social Media Links
+        st.markdown("""
+            <div class="social-links">
+            <a href="#" target="_blank">Facebook</a> | 
+            <a href="#" target="_blank">LinkedIn</a> | 
+            <a href="#" target="_blank">Instagram</a> | 
+            <a href="#" target="_blank">Twitter</a>
+            </div>
+        """, unsafe_allow_html=True)
         st.markdown('<div class="footer">© 2024 GeoLibya. All rights reserved.</div>', unsafe_allow_html=True)
 
     except Exception as e:
