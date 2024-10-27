@@ -2,3 +2,4 @@ streamlit
 plotly
 streamlit-extras
 streamlit-reveal-slides
+streamlit-card
