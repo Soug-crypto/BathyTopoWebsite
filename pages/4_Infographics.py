@@ -69,7 +69,7 @@ def main():
     Main function to run the Streamlit app for interactive chart loading.
     """
     # Directory where JSON files are stored
-    chart_dir = Path('files/charts')
+    chart_dir = Path('files/Charts')
 
     # Load available JSON files
     json_files = get_json_files(chart_dir)
