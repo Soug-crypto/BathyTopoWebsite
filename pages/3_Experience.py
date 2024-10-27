@@ -106,7 +106,7 @@ services = [
 # Introduction and conclusion texts
 introduction_text = (
     "<p>At <strong>GeoLibya</strong>, our leadership team brings a wealth of experience in modernizing Libya’s geodetic infrastructure. "
-    "This strong foundation enables us to deliver <strong>accurate geodetic measurements</strong> and calculations across various sectors, "
+    "This strong foundation enables us to deliver <strong>accurate geodetic and bathymetric measurements</strong> and calculations across various sectors, "
     "driving innovation and efficiency in our projects.<p>"
 )
 

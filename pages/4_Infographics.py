@@ -82,7 +82,7 @@ def main():
     file_types = extract_file_types(json_files)
 
     # Streamlit UI components
-    st.title("Interactive Charts")
+    st.title("Interactive Project Data")
 
     # Search bar to filter charts by name or metadata
     search_query = st.text_input("Search by chart name")

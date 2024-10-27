@@ -3,16 +3,10 @@ import re
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
 from streamlit_extras.stylable_container import stylable_container
+from streamlit_extras.add_vertical_space import add_vertical_space
+
 import traceback
 
-
-#add to footer deivider
-# .footer {
-#     text-align: center;
-#     margin-top: 50px; 
-#     font-size: 0.9em;
-#     color: #888;
-# } 
 
 def footer(pages=None, directory="pages", footer_css_styles=None):
     """Render the footer with navigation buttons.
@@ -62,9 +56,13 @@ def footer(pages=None, directory="pages", footer_css_styles=None):
             .button:focus {
                 box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.4);
             }
+            .footer {
+                text-align: center;
+                margin-top: 50px; 
+                font-size: 0.9em;
+                color: #888;
+            } 
     """
-
-
     
     # Use default styles if none provided
     if footer_css_styles is None:
@@ -84,7 +82,10 @@ def footer(pages=None, directory="pages", footer_css_styles=None):
 
     try:
         # Start rendering the footer
+        add_vertical_space(3)
+
         st.markdown(footer_css_styles, unsafe_allow_html=True)
+        st.divider()
 
         cols = st.columns(len(pages))
 
@@ -95,9 +96,8 @@ def footer(pages=None, directory="pages", footer_css_styles=None):
                 with stylable_container(key=page, css_styles=button_css_styles):
                     if st.button(button_label, key=page):
                         switch_page(page)
+       
         st.markdown('<div class="footer">© 2024 GeoLibya. All rights reserved.</div>', unsafe_allow_html=True)
-
-        st.markdown('</footer>', unsafe_allow_html=True)
 
     except Exception as e:
         st.error(f"Error rendering footer: {str(e)}")
