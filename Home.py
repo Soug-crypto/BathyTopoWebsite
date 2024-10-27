@@ -6,8 +6,6 @@ from streamlit_extras.stylable_container import stylable_container
 from streamlit_extras.add_vertical_space import add_vertical_space
 from streamlit_carousel import carousel
 
-import reveal_slides as rs
-
 with open('./files/style.css') as f:
     css = f.read()
 
@@ -69,9 +67,7 @@ test_items = [
 def home_page():
     header()   
     add_vertical_space(6)
-
-
-
+    
     carousel(
                 items=test_items,
                 slide=True,              # Enable sliding

@@ -1,5 +1,5 @@
 streamlit
 plotly
 streamlit-extras
-streamlit-reveal-slides
+streamlit_carousel
 streamlit-card
