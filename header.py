@@ -1,9 +1,6 @@
 
 import streamlit as st
 from streamlit_extras.stylable_container import stylable_container
-# from streamlit_float import *
-
-
 
 with open('./files/style.css') as f:
     css = f.read()
@@ -60,7 +57,6 @@ def header():
             css_styles= logo_css_styles,
         ):
             st.image("images/logo.png", width=175)  
-    col1.float()
 
     with col2:
         with stylable_container(
@@ -69,4 +65,3 @@ def header():
         ):
             st.markdown("<h1>GeoLibya</h1>", unsafe_allow_html=True)
             st.markdown("<h2>Mapping the Future, Above and Below.</h2>", unsafe_allow_html=True)
-    col2.float()
