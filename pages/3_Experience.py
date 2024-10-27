@@ -1,5 +1,7 @@
 import streamlit as st
 from footer import footer
+from header import header
+
 
 # Services Data with Experience
 services = [
@@ -223,6 +225,7 @@ def main():
     apply_styles(css)
 
     apply_styles(custom_css)
+    header()
 
     st.markdown("<h1>Our Expertise in Mapping Solutions</h1>", unsafe_allow_html=True)
     st.markdown(introduction_text, unsafe_allow_html=True)

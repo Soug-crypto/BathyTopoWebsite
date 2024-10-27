@@ -3,6 +3,8 @@ import plotly.io as pio
 from pathlib import Path
 import json
 from footer import footer
+from header import header
+
 
 
 with open('./files/style.css') as f:
@@ -11,6 +13,8 @@ with open('./files/style.css') as f:
 st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
 
 st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
+
+header()
 
 @st.cache_data(ttl=3600, max_entries=10)
 def load_figure_from_json(json_file: Path):

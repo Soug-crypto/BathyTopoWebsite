@@ -1,5 +1,7 @@
 import streamlit as st
 from footer import footer
+from header import header
+
 from streamlit_extras.stylable_container import stylable_container
 from streamlit_extras.add_vertical_space import add_vertical_space
 import reveal_slides as rs
@@ -94,25 +96,7 @@ welcome_css_styles = """
 
 
 def home_page():
-    # Logo and Title Section
-    col1, col2 = st.columns([1, 2])  
-
-    with col1:
-        with stylable_container(
-            key="logo",
-            css_styles= logo_css_styles,
-        ):
-            st.image("images/logo.png", width=200)  
-
-    with col2:
-        with stylable_container(
-            key="title-sub",
-            css_styles= title_css_styles,
-        ):
-            st.markdown("<h1>GeoLibya</h1>", unsafe_allow_html=True)
-            st.markdown("<h2>Mapping the Future, Above and Below.</h2>", unsafe_allow_html=True)
-
-
+    header()
     tagline_css_styles = """
             <style>
             .tagline {

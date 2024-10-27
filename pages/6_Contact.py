@@ -1,5 +1,7 @@
 import streamlit as st
 from footer import footer
+from header import header
+
 
 with open('./files/style.css') as f:
     css = f.read()
@@ -8,7 +10,7 @@ st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sideb
 
 st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
-
+header()
 st.title("Contact Us")
 st.subheader("Get in Touch")
 

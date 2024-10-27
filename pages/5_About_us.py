@@ -1,5 +1,7 @@
 import streamlit as st
 from footer import footer
+from header import header
+
 import base64
 from streamlit_card import card
 
@@ -9,7 +11,7 @@ with open('./files/style.css') as f:
 
 st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
 st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
-
+header()
 st.markdown("""
     <style>
         /* Title styling */
