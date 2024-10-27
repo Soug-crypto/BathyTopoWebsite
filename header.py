@@ -60,7 +60,7 @@ def header():
 
     with col2:
         with stylable_container(
-            key="title-sub",
+            key="sub-title-sub",
             css_styles= title_css_styles,
         ):
             st.markdown("<h1>GeoLibya</h1>", unsafe_allow_html=True)
