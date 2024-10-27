@@ -1,7 +1,7 @@
 
 import streamlit as st
 from streamlit_extras.stylable_container import stylable_container
-from streamlit_float import *
+# from streamlit_float import *
 
 
 
