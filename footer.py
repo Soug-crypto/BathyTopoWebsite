@@ -5,7 +5,16 @@ from streamlit_extras.switch_page_button import switch_page
 from streamlit_extras.stylable_container import stylable_container
 import traceback
 
-def footer(pages=None, directory="pages", css_styles=None):
+
+#add to footer deivider
+# .footer {
+#     text-align: center;
+#     margin-top: 50px; 
+#     font-size: 0.9em;
+#     color: #888;
+# } 
+
+def footer(pages=None, directory="pages", footer_css_styles=None):
     """Render the footer with navigation buttons.
 
     Args:
@@ -14,35 +23,52 @@ def footer(pages=None, directory="pages", css_styles=None):
         css_styles (Optional[str]): CSS styles for buttons. Defaults to predefined styles.
     """
     # Default CSS styles
-    default_css_styles = """
-            floater {
+    default_css_styles = """<style>
+            .floater {
                 position: fixed;
                 left: 0;
                 bottom: 0;
                 width: 100%;
-                background-color: #f1f1f1;
+                background-color: #f8f8f8; /* Light gray background for a soft look */
                 text-align: center;
-                padding: 10px;
-                font-size: 14px;
-                box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+                padding: 15px 0; /* Adjusted padding for a more compact appearance */
+                font-size: 18px; /* Slightly larger font for better readability */
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+                z-index: 1000; /* Ensure it appears above other content */
+                border-top: 1px solid #e1e1e1; /* Light border for separation */
             }
-            footer button {
-                margin: 0 10px;
-                color: #007BFF;
-                background-color: white;
-                border: 1px solid #007BFF;
-                padding: 5px 10px;
-                border-radius: 5px;
-                transition: background-color 0.3s;
+    </style>"""
+    
+    button_css_styles = """
+            button {
+                margin: 0 16px; /* Ample margin for spacious layout */
+                color: #286589; /* Apple blue for buttons */
+                background-color: #ffffff; /* Clean white background */
+                border: 1px solid #eedccb; /* Blue border */
+                padding: 10px 24px; /* Comfortable padding for a more balanced feel */
+                border-radius: 10px; /* Slightly less rounded for a sleek look */
+                font-weight: 600; /* Bold for emphasis */
+                font-size: 12px; /* Consistent font size */
+                transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+                cursor: pointer; /* Pointer cursor for buttons */
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+                outline: none; /* Remove default outline */
             }
-            footer button:hover {
-                background-color: #e7f1ff;
+            button:hover {
+                background-color: #286589; 
+                transform: translateY(-2px); /* Enhanced lift effect on hover */
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05); /* Deeper shadow on hover for more emphasis */
+            }
+            .button:focus {
+                box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.4);
             }
     """
+
+
     
     # Use default styles if none provided
-    if css_styles is None:
-        css_styles = default_css_styles
+    if footer_css_styles is None:
+        footer_css_styles = default_css_styles
 
     # Check if the specified directory exists
     if pages is None:
@@ -58,8 +84,7 @@ def footer(pages=None, directory="pages", css_styles=None):
 
     try:
         # Start rendering the footer
-
-        st.markdown('<footer class="floater">', unsafe_allow_html=True)
+        st.markdown(footer_css_styles, unsafe_allow_html=True)
 
         cols = st.columns(len(pages))
 
@@ -67,10 +92,11 @@ def footer(pages=None, directory="pages", css_styles=None):
         for i, page in enumerate(pages):
             button_label = page.replace("_", " ").title()
             with cols[i]:
-                with stylable_container(key=page, css_styles=css_styles):
+                with stylable_container(key=page, css_styles=button_css_styles):
                     if st.button(button_label, key=page):
                         switch_page(page)
-        
+        st.markdown('<div class="footer">© 2024 GeoLibya. All rights reserved.</div>', unsafe_allow_html=True)
+
         st.markdown('</footer>', unsafe_allow_html=True)
 
     except Exception as e:
@@ -92,44 +118,6 @@ def read_pages_from_directory(directory):
     except FileNotFoundError:
         st.warning(f"Directory '{directory}' not found.")
         return []
-
-def render_footer_html(buttons):
-    """Render the HTML for the footer.
-
-    Args:
-        buttons (str): HTML string containing buttons for navigation.
-    """
-    st.markdown(
-        f"""
-        <style>
-            .footer {{
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                background-color: #f1f1f1;
-                text-align: center;
-                padding: 10px;
-                font-size: 14px;
-                box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
-            }}
-            .footer button {{
-                margin: 0 10px;
-                color: #007BFF;
-                background-color: white;
-                border: 1px solid #007BFF;
-                padding: 5px 10px;
-                border-radius: 5px;  
-                transition: background-color 0.3s;  
-            }}
-
-        </style>
-        <div class="footer">
-            {buttons}
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
 
 def standardize_page_name(name):
     """Standardize the page name by removing leading numbers and underscores.

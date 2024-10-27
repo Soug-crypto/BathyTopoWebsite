@@ -1,71 +1,6 @@
 import streamlit as st
 from footer import footer
 
-with open('./files/style.css') as f:
-    css = f.read()
-
-st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
-st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
-
-# Custom CSS for improved styling
-st.markdown(
-    """
-    <style>
-    body {
-        font-family: 'Helvetica Neue', Arial, sans-serif;
-        background-color: #F9F9F9; /* Lighter background for a modern look */
-        color: #333;
-        line-height: 1.6; /* Improve readability */
-    }
-    h1 {
-        color: #2C3E50; /* Dark blue */
-        text-align: center;
-        margin-bottom: 30px; /* More space below title */
-    }
-    h2, h3 {
-        color: #34495E; /* Lighter blue for subheaders */
-        text-align: center;
-        margin: 25px 0; /* Consistent spacing */
-    }
-    
-    .fact {
-        font-weight: bold;
-        color: #2980B9; /* Distinct blue for facts */
-    }
-    .project-title {
-        font-weight: bold;
-        margin-top: 15px; /* More space above titles */
-    }
-
-    /* Custom styles for the expander */
-    .streamlit-expanderHeader {
-        background-color: #46A748; /* Change header background color */
-        color: white; /* Change header text color */
-        border-radius: 5px; /* Rounded corners for the header */
-        padding: 10px; /* Padding for the header */
-        transition: background-color 0.3s ease; /* Smooth transition */
-    }
-    .streamlit-expanderHeader:hover {
-        background-color: #46A748; /* Change background on hover */
-    }
-    .streamlit-expanderContent {
-        background-color: #ecf0f1; /* Light background for content */
-        padding: 15px; /* Padding for the content */
-        border-radius: 5px; /* Rounded corners for the content */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-# Page Title
-st.title("Facts and Figures")
-
-# Introduction
-st.write(
-    "At GeoLibya, our leadership team boasts extensive experience in modernizing Libya’s geodetic infrastructure. "
-    "This solid foundation empowers us to deliver precise geodetic measurements and calculations across various sectors."
-)
 # Services Data with Experience
 services = [
     {
@@ -166,27 +101,141 @@ services = [
     }
 ]
 
-# Expander for each service with experience
-for service in services:
-    with st.expander(service['title'], expanded=False):
-        for paragraph in service['content']:
-            st.write(paragraph)
-        
-        # Experience overview within each expander
-        if service['experience']:  # Check if experience is not empty
-            st.markdown('<h3>Overview of Experience</h3>', unsafe_allow_html=True)
-            for project, activities in service['experience']:
-                if activities:  # Check if activities is not empty
-                    st.markdown(f'<div class="project-title">{project}</div>', unsafe_allow_html=True)
-                    for activity in activities:
-                        st.write(f"• {activity}")
-
-# Conclusion
-st.write(
-    "These diverse projects underscore GeoLibya's commitment to delivering high-quality geodetic and mapping solutions that drive economic growth and sustainable development, both in Libya and beyond. "
-    "With a trusted track record serving clients like Repsol, Statoil, and the General Electricity Company, we consistently strive for excellence in every endeavor."
+# Introduction and conclusion texts
+introduction_text = (
+    "<p>At <strong>GeoLibya</strong>, our leadership team brings a wealth of experience in modernizing Libya’s geodetic infrastructure. "
+    "This strong foundation enables us to deliver <strong>accurate geodetic measurements</strong> and calculations across various sectors, "
+    "driving innovation and efficiency in our projects.<p>"
 )
 
-# Footer
-st.markdown('<div class="footer">© 2024 GeoLibya. All rights reserved.</div>', unsafe_allow_html=True)
-footer()
+conclusion_text = (
+    "<p>Our diverse projects highlight <strong>GeoLibya's</strong> unwavering commitment to delivering "
+    "<strong>high-quality geodetic and mapping solutions</strong> that drive <strong>economic growth</strong> "
+    "and <strong>sustainable development</strong> both in Libya and beyond. "
+    "With a proven track record of excellence in serving esteemed clients such as <strong>Repsol</strong>, "
+    "<strong>Statoil</strong>, and the <strong>General Electricity Company</strong>, "
+    "we consistently strive to exceed expectations in every endeavor.<p>"
+)
+
+# Custom CSS for a refined look
+custom_css = """
+h1 {
+    color: #1A1A1A; 
+    text-align: center;
+    margin: 60px 0; 
+    font-size: 48px; 
+    letter-spacing: 1.5px; 
+    font-weight: 700;
+}
+
+h2, h3 {
+    color: #3D3D3D; 
+    text-align: center;
+    margin: 30px 0; 
+    font-weight: 600; 
+}
+
+p, li {
+    font-size: 16px; 
+    line-height: 1.6; 
+}
+
+.streamlit-button {
+    background-color: #007aff; 
+    color: white; 
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    font-weight: bold; 
+    transition: background-color 0.3s ease; 
+}
+.streamlit-button:hover {
+    background-color: #0056b3; 
+}
+
+.streamlit-expanderHeader {
+    background-color: #007aff; 
+    color: white; 
+    border-radius: 5px; 
+    padding: 12px; 
+    transition: background-color 0.3s ease; 
+}
+.streamlit-expanderHeader:hover {
+    background-color: #0056b3; 
+}
+
+.streamlit-expanderContent {
+    background-color: #ffffff; 
+    padding: 20px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.footer {
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+    padding: 20px 0;
+    border-top: 1px solid #e0e0e0; 
+    margin-top: 40px; 
+}
+"""
+
+# Function to render service expander with experience
+def render_service_expander(service):
+    with st.expander(service['title'], expanded=False):
+        for paragraph in service['content']:
+            st.markdown(paragraph, unsafe_allow_html=True)
+
+        if service.get('experience'):
+            st.markdown('<h3>Overview of Experience</h3>', unsafe_allow_html=True)
+            render_experience(service['experience'])
+
+# Function to render experience details
+def render_experience(experience):
+    for project, activities in experience:
+        st.markdown(f'<div class="project-title">{project}</div>', unsafe_allow_html=True)
+        for activity in activities:
+            st.write(f"• {activity}")
+
+# Load custom CSS from external file (if necessary)
+def load_css(file_path):
+    with open(file_path) as f:
+        return f.read()
+
+# Set up page configuration
+def configure_page():
+    st.set_page_config(
+        page_title="GeoLibya Projects & Industries",
+        page_icon="🌍",
+        layout="wide",
+        initial_sidebar_state="auto",
+        menu_items=None
+    )
+
+# Apply CSS styles
+def apply_styles(css):
+    st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
+
+# Main function to orchestrate the app
+def main():
+    # Load and apply external CSS
+    css = load_css('./files/style.css')
+    apply_styles(css)
+
+    apply_styles(custom_css)
+
+    st.markdown("<h1>Our Expertise in Mapping Solutions</h1>", unsafe_allow_html=True)
+    st.markdown(introduction_text, unsafe_allow_html=True)
+    st.markdown("<h2>Featured Projects</h2>", unsafe_allow_html=True)
+
+    for service in services:
+        render_service_expander(service)
+
+    st.markdown(conclusion_text, unsafe_allow_html=True)
+
+
+    footer()
+
+if __name__ == "__main__":
+    configure_page()
+    main()

@@ -40,5 +40,4 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Footer
-st.markdown('<div class="footer">© 2024 GeoLibya. All rights reserved.</div>', unsafe_allow_html=True)
 footer()
